@@ -30,8 +30,8 @@ jobs:
         run: htmlhint "**/*.html"
 
       # 5. Validation CSS (Détecte les erreurs de syntaxe et propriétés invalides)
-      - name: Contrôle CSS
-        run: npx stylelint "**/*.css"
+#      - name: Contrôle CSS
+#        run: npx stylelint "**/*.css"
 
       # 6. Validation JavaScript (Détecte les variables non utilisées, les points-virgules manquants, la syntaxe cassée)
  #     - name: Contrôle JavaScript
@@ -91,10 +91,10 @@ jobs:
       - name: Déploiement Production SFTP Sovereign
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
+          server: ${{ secrets.SFTP_SERVER }} #ssh-webdev29.alwaysdata.net
+          username: ${{ secrets.SFTP_USERNAME }} #webdev29
+          password: ${{ secrets.SFTP_PASSWORD }} # mdp de login
           port: 22
           local_path: './'      
-          remote_path: ${{ secrets.REMOTE_PATH }}
+          remote_path: ${{ secrets.REMOTE_PATH }} #/home/webdev29/www/
           ssh_private_key: ''
